@@ -1,4 +1,4 @@
-const backendDomain = "https://fullstack-e-commerce-two.vercel.app/";
+const backendDomain = "https://fullstack-e-commerce-two.vercel.app";
 //backend route link
 const SummaryApi = {
   signup: {
