@@ -23,7 +23,7 @@ const filterProductController = require('../controller/filterProduct')
 const paymentController = require('../controller/order/paymentController')
 const webhooks = require('../controller/order/webhook')
 const orderController = require('../controller/order/orderController')
-const allOrderController = require('../controller/order/allordercontroller')
+const allOrderController = require('../controller/allOrderController')
 
  
 
