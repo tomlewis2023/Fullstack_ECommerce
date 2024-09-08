@@ -14,19 +14,18 @@ import Context from "../context";
 import { TbBrandElectronicArts } from "react-icons/tb";
 
 const Header = () => {
-  //import initial state redux
+  // Import initial state redux
   const user = useSelector((state) => state?.user?.user);
   
-
-  //import dispatch redux
+  // Import dispatch redux
   const dispatch = useDispatch();
-  //state menu
+  // State menu
   const [menudisplay, setmenudisplay] = useState(false);
 
-  //import context add to cart
+  // Import context add to cart
   const context = useContext(Context);
 
-  //navigate for search
+  // Navigate for search
   const navigate = useNavigate();
 
   const searchInput = useLocation();
@@ -34,7 +33,7 @@ const Header = () => {
   const searchQuery = URLSearch.getAll("q");
   const [search, setsearch] = useState(searchQuery);
 
-  //logout method
+  // Logout method
   const handlelogout = async () => {
     const fetchdata = await fetch(SummaryApi.logout_user.url, {
       method: SummaryApi.logout_user.method,
@@ -52,7 +51,7 @@ const Header = () => {
     }
   };
 
-  //Search function
+  // Search function
   const handleSearch = (e) => {
     const { value } = e.target;
     setsearch(value);
@@ -89,8 +88,7 @@ const Header = () => {
         </div>
         <div className="flex items-center gap-5">
           <div className="relative flex justify-center">
-            {/* usernot login do not display displayicon */}
-
+            {/* User not logged in - do not display display icon */}
             {user?._id && (
               <div
                 className="text-3xl cursor-pointer "
@@ -102,42 +100,33 @@ const Header = () => {
                     className="w-10 h-10 rounded-full"
                     alt={user?.fname}
                   /> 
-                  // && (
-                  //   <p className="font-semibold text-lg capitalize">
-                  //     {user?.fname}
-                  //   </p>
-
-                  // )                
-                  
-
                 ) : (
-                   (
-                    <p className="font-semibold text-lg capitalize">
-                      {user?.fname}
-                    </p>
-                  )
+                  <p className="font-semibold text-lg capitalize">
+                    {user?.fname}
+                  </p>
                 )}
               </div>
             )}
 
             {menudisplay && (
               <div
-                className="absolute bg-white bootom-0 top-12  h-fit p-4 shadow-lg rounded "
+                className="absolute bg-white bottom-0 top-12 right-0 h-fit p-4 shadow-lg rounded w-48"
                 onClick={() => setmenudisplay((prev) => !prev)}
               >
-                <nav>
-                  {/* display admin panel only when admin logs in */}
+                <nav className="flex flex-col">
+                  {/* Display admin panel only when admin logs in */}
                   {user?.role === ROLE.ADMIN && (
                     <Link
                       to={"admin-panel"}
-                      className="widespace-nowrap hidden md:block hover:bg-slate-100 p-3 "
+                      className="widespace-nowrap hover:bg-slate-100 p-3"
                     >
                       Admin
                     </Link>
                   )}
-                  <Link to={'/order'} className="widespace-nowrap hidden md:block hover:bg-slate-100 p-3 " >Order</Link>
-
-
+                  {/* Make the Order link visible on all screen sizes */}
+                  <Link to={'/order'} className="widespace-nowrap hover:bg-slate-100 p-3">
+                    Order
+                  </Link>
                 </nav>
               </div>
             )}
