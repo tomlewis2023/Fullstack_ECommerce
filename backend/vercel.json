@@ -2,24 +2,14 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/**/*.js",
+      "src": "*.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
-    {
-      "src": "/api/webhook",
-      "dest": "/api/webhook.js",
-      "methods": ["POST"],
-      "headers": {
-        "Content-Type": "application/json"
-      },
-      "bodyParser": false
-    },
     {
       "src": "/(.*)",
       "dest": "/"
     }
   ]
 }
-
