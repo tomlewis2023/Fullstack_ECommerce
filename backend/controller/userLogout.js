@@ -1,7 +1,13 @@
 function userLogout (req,res){
     try {
 
-        res.clearCookie("token")
+        const tokenOption = {
+            httpOnly :true,
+            secure: true,
+            sameSite : 'None'
+           }
+
+        res.clearCookie("token",tokenOption)
         //res.clearCookie("token") is used to delete a cookie from the client’s browser, effectively logging out the user or invalidating their session.
 
         res.json({
