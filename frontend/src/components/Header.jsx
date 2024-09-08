@@ -16,7 +16,7 @@ import { TbBrandElectronicArts } from "react-icons/tb";
 const Header = () => {
   // Import initial state redux
   const user = useSelector((state) => state?.user?.user);
-  
+
   // Import dispatch redux
   const dispatch = useDispatch();
   // State menu
@@ -78,7 +78,7 @@ const Header = () => {
           <input
             type="text"
             placeholder="search product here..."
-            className="w-full outline-none "
+            className="w-full outline-none"
             onChange={handleSearch}
             value={search}
           />
@@ -91,7 +91,7 @@ const Header = () => {
             {/* User not logged in - do not display display icon */}
             {user?._id && (
               <div
-                className="text-3xl cursor-pointer "
+                className="text-3xl cursor-pointer"
                 onClick={() => setmenudisplay((prev) => !prev)}
               >
                 {user?.profilepic ? (
@@ -99,7 +99,7 @@ const Header = () => {
                     src={user?.profilepic}
                     className="w-10 h-10 rounded-full"
                     alt={user?.fname}
-                  /> 
+                  />
                 ) : (
                   <p className="font-semibold text-lg capitalize">
                     {user?.fname}
@@ -124,7 +124,10 @@ const Header = () => {
                     </Link>
                   )}
                   {/* Make the Order link visible on all screen sizes */}
-                  <Link to={'/order'} className="widespace-nowrap hover:bg-slate-100 p-3">
+                  <Link
+                    to={"/order"}
+                    className="widespace-nowrap hover:bg-slate-100 p-3"
+                  >
                     Order
                   </Link>
                 </nav>
@@ -150,13 +153,16 @@ const Header = () => {
           </div>
 
           {user?._id && (
-            <Link to={"/cart"} className="text-2xl relative py-3 mx-4">
-              <span>
+            <Link
+              to={"/cart"}
+              className="text-2xl relative flex items-center justify-center py-3 mx-4"
+            >
+              <span className="relative">
                 <FiShoppingCart />
+                <div className="bg-red-600 text-white w-5 h-5 flex items-center justify-center rounded-full absolute -top-2 -right-2">
+                  <p className="text-sm">{context?.cartProductCount}</p>
+                </div>
               </span>
-              <div className="bg-red-600 text-white w-5 p-1 flex items-center justify-center rounded-full absolute -top-1 -right-3 ">
-                <p className="text-sm">{context?.cartProductCount}</p>
-              </div>
             </Link>
           )}
         </div>
