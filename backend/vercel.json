@@ -8,6 +8,15 @@
   ],
   "routes": [
     {
+      "src": "/webhook",
+      "dest": "/api/webhook.js",
+      "methods": ["POST"],
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "bodyParser": false
+    },
+    {
       "src": "/(.*)",
       "dest": "/"
     }
