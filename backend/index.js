@@ -7,10 +7,18 @@ const cookieParser = require('cookie-parser')
 
 
 const app = express();
+// app.use(cors({
+//   origin: process.env.FRONTEND_URL,
+//   credentials: true
+// }));
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL,
-  credentials: true
+  origin: 'https://fullstack-e-commerce-u1vh.vercel.app', // Replace with your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Adjust methods as needed
+  allowedHeaders: ['Content-Type', 'Authorization'], // Adjust headers as needed
 }));
+
+
 app.use(express.json())
 app.use(cookieParser())
 
