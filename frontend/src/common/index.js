@@ -1,4 +1,4 @@
-const backendDomain = "http://localhost:8080";
+const backendDomain = "https://fullstack-e-commerce-two.vercel.app/";
 //backend route link
 const SummaryApi = {
   signup: {
