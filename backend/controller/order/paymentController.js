@@ -44,8 +44,8 @@ const paymentController = async(request,response) =>{
                     quantity : item.quantity
                 }
             }),
-            success_url : `${process.env.FRONTEND_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
-            cancel_url : `${process.env.FRONTEND_URL}/cancel`,
+            success_url : `${process.env.FRONTEND_URL}`,
+            cancel_url : `${process.env.FRONTEND_URL}`,
 
 
         }
