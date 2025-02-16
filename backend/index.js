@@ -13,6 +13,7 @@ const app = express();
 
 const allowedOrigins = [
   process.env.FRONTEND_URL,
+  
   // Add other allowed origins if needed
 ];
 app.use(
@@ -36,7 +37,7 @@ app.options("*", cors());
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/api", router);
+app.use("/api", router); //for routing routes 
 
 const PORT = process.env.PORT || 8080;
 

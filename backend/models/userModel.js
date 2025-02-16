@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
-//db schema
-
+// User Schema
 const userSchema = mongoose.Schema(
   {
     fname: String,
@@ -13,6 +12,13 @@ const userSchema = mongoose.Schema(
     password: String,
     profilepic: String,
     role: String,
+    shippingAddress: {
+      street: String,
+      city: String,
+      state: String,
+      zip: String,
+      country: String,
+    },
   },
   {
     timestamps: true,
