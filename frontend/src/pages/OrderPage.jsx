@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 import displayINRCurrency from "../helpers/displayCurrency";
+import SummaryApi from "../common/index"
 
 const OrderPage = () => {
   const [orders, setOrders] = useState([]);
 
   const fetchOrderDetails = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/all-orders", {
-        method: "GET",
+      const response = await fetch(SummaryApi.allOrder.url, {
+        method: SummaryApi.allOrder.method,
         credentials: "include", // Required for authentication cookies
       });
 
